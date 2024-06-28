@@ -1,0 +1,159 @@
+ <html lang="en">
+  <head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale" />
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <nav id="navbar">
+      <header class="main title">Web security</header>
+      <ul>
+        <li><a class="nav-link" href="#Content_security">Content security</a></li>
+        <li><a class="nav-link" href="#Connection_security">Connection security</a></li>
+        <li><a class="nav-link" href="#Data_security">Data security</a></li>
+        <li><a class="nav-link" href="#Information_leakage">Information leakage</a></li>
+        <li><a class="nav-link" href="#Integrity">Integrity</a></li>
+        <li><a class="nav-link" href="#Clickjacking_protection">Clickjacking protection</a></li>
+        <li><a class="nav-link" href="#User_information_security">User information security</a></li>
+        <li><a class="nav-link" href="#Security_related_glossary_terms">Security related glossary terms</a></li>
+        <li><a class="nav-link" href="#See_also">See also</a></li>
+          </ul>
+      </nav>
+<p class="intro">Ensuring that your website or open web application is secure is critical. Even simple bugs in your code can result in private information being leaked, and bad people are out there trying to find ways to steal data. The web security-oriented articles listed here provide information that may help you secure your site and its code from attacks and data theft.</p>
+    <main id="main-doc">
+      <section class="main-section" id="Content_security">
+        <header>Content security</header>
+        <p>Content security policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross-Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement to the distribution of malware</p>
+      </section>
+      <section class="main-section" id="Connection_security">
+        <header>Connection security</header>
+        <h5>Transport layer security (TLS)</h5>
+  <p>The Transport Layer Security (TLS)protocol is the standard for enabling two networked applications or devices to exchange information privately and robustly. Applications that use TLS can choose their security parameters, which can have a substantial impact on the security and reliability of data. This article provides an overview of TLS and the kinds of decisions you need to make when securing your content.</p>
+
+        <h5>HTTPS</h5>
+<p>HTTPS (HyperText Transfer Protocol Secure) is an encrypted version of the HTTP protocol. It uses SSL or TLS to encrypt all communication between a client and a server. This secure connection allows clients to be sure that they are connected with the intended server, and to exchange sensitive data.</p>
+
+        <h5>HTTP Strict-Transport-Security</h5>
+<p>The Strict-Transport-Security: HTTP header lets a website specify that it may only be accessed using HTTPS.</p>
+
+        <h5>Certificate Transparency</h5>
+<p>Certificate Transparency is an open framework designed to protect against and monitor for certificate misissuances. Newly issued certificates are 'logged' to publicly run, often independent CT logs which maintain an append-only, cryptographically assured record of issued TLS certificates.</p>
+
+        <h5>Mixed content</h5>
+<p>An HTTPS page that includes content fetched using cleartext HTTP is called a mixed content page. Pages like this are only partially encrypted, leaving the unencrypted content accessible to sniffers and man-in-the-middle attackers.</p>
+
+        <h5>How to fix a website with blocked mixed content</h5>
+<p>If your website delivers HTTPS pages, all active mixed content delivered via HTTP on these pages will be blocked by default. Consequently, your website may appear broken to users (if iframes or plugins don't load, etc.). Passive mixed content is displayed by default, but users can set a preference to block this type of content, as well. This page explains what you should be aware of as a web developer.</p>
+
+        <h5>Secure contexts</h5>
+<p>A secure context is a Window or Worker for which there is reasonable confidence that the content has been delivered securely (via HTTPS/TLS), and for which the potential for communication with contexts that are not secure is limited. Many Web APIs and features are accessible only in a secure context. The primary goal of secure contexts is to prevent man-in-the-middle attackers from accessing powerful APIs that could further compromise the victim of an attack.</p>
+
+        <h5>Features restricted to secure contexts</h5>
+<p>This reference lists the web platform features available only in secure contexts.</p>
+
+        <h5>Weak signature algorithms</h5>
+<p>The strength of the hash algorithm used in signing a digital certificate is a critical element of the security of the certificate. This article provides some information about signature algorithms known to be weak, so you can avoid them when appropriate.</p>
+
+<p>Redirection with 301 and 302 response codes
+to be written</p>
+        </section>
+      <section class="main-section" id="Data_security">
+        <header>Data security</header>
+        <h5>Using HTTP Cookies</h5>
+<p>An HTTP cookie (web cookie, browser cookie) is a small piece of data that a server sends to the user's web browser. The browser may store it and send it back with later requests to the same server. Typically, it's used to tell if two requests came from the same browser — keeping a user logged-in, for example.</p>
+
+        <h5>Local storage</h5>
+<p>The Window object's Window.localStorage property is a way for servers to store data on a client that is persistent across sessions.</p>
+      </section>
+      <section class="main-section" id="Information_leakage">
+        <header>Information leakage</header>
+<p>Referer header policy: privacy and security concerns
+There are privacy and security risks associated with the Referer HTTP header. This article describes them and offers advice on mitigating those risks.</p>
+
+        <h5>IFrame credentialless</h5>
+<p>Iframe credentialless provides a mechanism for developers to load third-party resources in <code>&lt;iframe&gt;</code> using a new, ephemeral context. This context doesn't have access to the network, cookies, and storage data associated with is origin. It uses a new context local to the top-level document lifetime. In return, the Cross-Origin-Embedder-Policy (COEP) embedding rules can be lifted, so documents with COEP set can embed third-party documents that do not.</p>
+      </section>
+      <section class="main-section" id="Integrity">
+        <header>Integrity</header>
+        <h5>Same-origin policy</h5>
+<p>The same-origin policy is a critical security mechanism that restricts how a document or script loaded from one origin can interact with a resource from another origin. It helps isolate potentially malicious documents, reducing possible attack vectors.</p>
+
+        <h5>Subresource integrity</h5>
+<p>Subresource Integrity (SRI) is a security feature that enables browsers to verify that resources they fetch (for example, from a CDN) are delivered without unexpected manipulation. It works by allowing you to provide a cryptographic hash that a fetched resource must match.</p>
+
+        <h5>HTTP Access-Control-Allow-Origin</h5>
+<p>The Access-Control-Allow-Origin response header indicates whether the response can be shared with requesting code from the given origin.</p>
+
+        <h5>HTTP X-Content-Type-Options</h5>
+<p>The X-Content-Type-Options response HTTP header is a marker used by the server to indicate that the MIME types advertised in the Content-Type headers should not be changed and be followed. This is a way to opt out of MIME type sniffing, or, in other words, to say that the MIME types are deliberately configured.</p>
+      </section>
+      <section class="main-section" id="Clickjacking_protection">
+        <header>Clickjacking protection</header>
+        <p>In clickjacking, a user is fooled into clicking on a UI element that performs some action other than what the user expects.
+
+        <h5>HTTP X-Frame-Options</h5>
+<p>The X-Frame-Options HTTP response header can be used to indicate whether a browser should be allowed to render a page in a <code>&lt;frame&gt;</code>,<code>&lt;iframe&gt</code>;, <code>&lt;embed&gt;</code> or <code>&lt; object&gt;</code>. Sites can use this to avoid clickjacking attacks, by ensuring that their content is not embedded into other sites.</p>
+        <h5>CSP: frame-ancestors</h5>
+<p>The HTTP Content-Security-Policy (CSP) frame-ancestors directive specifies valid parents that may embed a page using <code>&lt;frame&gt;</code>, <code>&lt;iframe&gt;</code>, <code>&lt;object&gt;</code>, <code>&lt;embed&gt;</code>, or <code>&lt;applet&gt;</code>.</p>
+        </section>
+        <section class="main-section" id="User_information_security">
+          <header>User information security</header>
+    <p>Insecure passwords
+Serving login forms over HTTP is especially dangerous because of the wide variety of attacks that can be used against them to extract a user's password. Network eavesdroppers could steal a user's password by sniffing the network, or by modifying the served page in transit.
+
+Privacy and the :visited selector
+Before about 2010, the CSS :visited selector allowed websites to uncover a user's browsing history and figure out what sites the user had visited. To mitigate this problem, browsers have limited the amount of information that can be obtained from visited links.</p>
+          </section>
+          <section class="main-section" id="Security_related_glossary_terms">
+          <header>Security related glossary terms</header>
+<ul class="security terms">
+<li>Block cipher mode of operation</li>
+<li>Certificate authority</li>
+<li>Challenge-response authentication</li>
+<li>Cipher</li>
+<li>Cipher suite</li>
+<li>Ciphertext</li>
+<li>Clickjacking</li>
+<li>CORS</li>
+<li>CORS-safelisted request header</li>
+<li>CORS-safelisted response header</li>
+<li>Cross-site scripting</li>
+<li>Cryptanalysis</li>
+<li>Cryptographic hash function</li>
+<li>Cryptography</li>
+<li>CSP</li>
+<li>CSRF</li>
+<li>Decryption</li>
+<li>Digital certificate</li>
+<li>DTLS</li>
+<li>Encryption</li>
+<li>Forbidden header name</li>
+<li>Forbidden response header name</li>
+<li>Hash</li>
+<li>HMAC</li>
+<li>HPKP</li>
+<li>HSTS</li>
+<li>HTTPS</li>
+<li>Key</li>
+<li>MitM</li>
+<li>OWASP</li>
+<li>Preflight request</li>
+<li>Public-key cryptography</li>
+<li>Reporting directive</li>
+<li>Robots.txt</li>
+<li>Same-origin policy</li>
+<li>Session hijacking</li>
+<li>SQL injection</li>
+<li>Symmetric-key cryptography</li>
+<li>TOFU</li>
+<li>TLS</li>
+      </ul>
+          </section>
+          <section class="main-section" id="See_also">
+            <header>See also</header>
+            <p><a href="https://blog.mozilla.org/security/">Security Blog</a></p>
+            <p><a href="https://twitter.com/mozsec">@mozsec</a> on Twitter</p>
+            </section>
+   
+      <hr>
+      <h4>Reference</h4>
+      <p>All documention on this page is from <a href="https://developer.mozilla.org/en-US/docs/Web/Security#connection_security">Web Security MDN</a> Web Docs. Explore <a href="https://developer.mozilla.org/en-US/">their website</a> for more useful and open-source information about web technologies.</p>
